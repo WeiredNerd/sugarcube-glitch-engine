@@ -12,7 +12,8 @@ The engine tries `.passage` and `#passage` by default.
 If you see `找不到 passage 容器` in console, change the selector in `runGlitch.js`:
 
 ```javascript
-let passageEl = document.querySelector("your container name");```
+let passageEl = document.querySelector("your container name");
+```
 
 
 # Usage
