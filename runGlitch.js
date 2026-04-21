@@ -1,5 +1,5 @@
 setup.insertRandomChars=function(book){
-  if (!book) return "【文本加载失败】";
+  if (!book) return "【文本加载失败Text failed to load】";
   let char = book.split('');
   let sign = ["!","@","#","$","%","^","&","*","(",")"];
   let insertCount = random (0,char.length)
@@ -36,7 +36,7 @@ setup.utf=function(text){
 };
 
 setup.repeatParagraph = function(id) {
-    let passageEl = document.querySelector(".passage") || document.querySelector("#passage");
+    let passageEl = document.querySelector(".passage") || document.querySelector("#passage") || document.querySelector("tw-passage") ;
     if (!passageEl) {
         console.log("找不到 passage 容器");
         return;
@@ -48,7 +48,7 @@ setup.repeatParagraph = function(id) {
     for (let i = 0; i < links.length; i++) {
         let oldLink = links[i];
         let newLink = document.createElement("a");
-        newLink.innerText = "继续";
+        newLink.innerText = "继续continue";
         newLink.style.cursor = "pointer";
         newLink.addEventListener("click", function() {
             Engine.play(id);
