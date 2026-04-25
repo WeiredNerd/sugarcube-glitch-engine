@@ -52,8 +52,11 @@ Second argument: array of modes (e.g. [1], [2], [1,2], [3])
 
 ### 3. Modes
 Mode	Effect
+
 [1]	Random character insertion
+
 [2]	UTF-8 corruption (random segment)
+
 [3]	Time Warp (50% repeat current page / 50% rollback to previous page)
 
     Mode 3 only affects links in #glitch-links. Text remains unchanged.
