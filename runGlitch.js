@@ -35,28 +35,24 @@ setup.utf=function(text){
 
 };
 
-setup.repeatParagraph = function(id) {
-    let passageEl = document.querySelector(".passage") || document.querySelector("#passage") || document.querySelector("tw-passage") ;
-    if (!passageEl) {
-        console.log("找不到 passage 容器");
-        return;
-    }
+setup.repeatParagraph = function(currentId, targetId) {
+    let linkContainer = document.getElementById("link-area"); 
+    if (!linkContainer) return;
     if (setup.repeatedFlag) return;
     setup.repeatedFlag = true;
     
-    let links = passageEl.querySelectorAll("a");
+    let links = linkContainer.querySelectorAll("a");
     for (let i = 0; i < links.length; i++) {
         let oldLink = links[i];
         let newLink = document.createElement("a");
-        newLink.innerText = "继续continue";
+        newLink.innerText = "继续";
         newLink.style.cursor = "pointer";
         newLink.addEventListener("click", function() {
-            Engine.play(id);
+            Engine.play(targetId);
         });
         oldLink.parentNode.replaceChild(newLink, oldLink);
     }
 };
-
 
 
 
@@ -74,7 +70,11 @@ window.runGlitch = function(divid, modes) {
         if (mode === 1) result = setup.insertRandomChars(result);
         if (mode === 2) result = setup.utf(result);
         if (mode === 3) {
-            setup.repeatParagraph(id0);  
+            let id0 = passage();
+    let prev = State.history[State.history.length - 2]?.title || id0;
+    let isRollback = Math.random() < 0.5;  // 抽奖放这里
+    let target = isRollback ? prev : id0;
+    setup.repeatParagraph(id0, target); 
         }
     }
     
