@@ -40,11 +40,11 @@ let passageEl = document.querySelector("your container name");
 At the bottom of the same passage:
 html
 
+```
 <<done>>
-
     <<run runGlitch("glitch-text", [1,2,3])>>
-    
 <</done>>
+```
 
 First argument: "glitch-text" — the ID of your text container
 
