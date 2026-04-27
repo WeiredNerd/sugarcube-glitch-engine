@@ -61,3 +61,28 @@ Mode	Effect
 
     Mode 3 only affects links in #glitch-links. Text remains unchanged.
 
+### 4.Example
+**Demo**
+input text: 太阳终于完全沉下了西山，天的西边，却像点着巨大的火把似的，烧起一片绚烂的晚霞。
+mode: 1,2 (procedure: mode 1 first, 2 next)
+output: @)太阳#终于!完@全#$沉*(%下了*西#&@!山)，天的西边(#，却像点着#(!巨大^的)火%把(似的@，%烧%^起#一ç‰‡绚烂的晚^霞。&
+
+**Code**
+```
+//input your text
+<div id = "d">太阳终于完全沉下了西山，天的西边，却像点着巨大的火把似的，烧起一片绚烂的晚霞。</div>
+
+//apply 
+<<done>>
+<<run runGlitch ("d",[1,2])>>
+<</done>>
+
+//separate the link area
+<div id = "link-area">
+	<<link "r" r>>
+	<</link>>
+    <<link "b" b>>
+    <</link>>
+
+</div>
+```
